@@ -1,0 +1,147 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.container-players {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: rgb(18, 160, 215);
+    height: 15vh;
+    width: 100%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+label {
+    color: white;
+    font-size: 1.3rem;
+}
+
+input {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+
+input:nth-of-type(1) {
+    margin-right: 2.5rem;
+}
+
+.btn-new-game {
+    margin-left: 5%;
+    background-color: green;
+}
+
+.game-message {
+    font-size: 1.5rem;
+}
+
+.container-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 9rem;
+}
+
+.playerX-score {
+    white-space: pre-line;
+    font-size: 1.5rem;
+    justify-self: center;
+    text-align: center;
+    line-height: 1.7;
+
+}
+
+.playerO-score {
+    white-space: pre-line;
+    font-size: 1.5rem;
+    justify-self: center;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.playerX-score::first-line,
+.playerO-score::first-line {
+    line-height: 5rem;
+}
+
+
+
+.container-chessBoard {
+    display: grid;
+    grid-template-columns:  repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    background-color: rgb(18, 160, 215);
+    justify-content: center;
+    border: gray 1px solid;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.6);
+    margin-bottom: 10%;
+}
+
+.box {
+    font-size: 3.8rem;
+    background: none;
+    border: 1px solid gray;
+    outline: none;
+    cursor: pointer;
+}
+
+.box:nth-child(-n+3) {
+    border-top: none;
+}
+
+.box:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.box:nth-child(3n+1) {
+    border-left: none;
+}
+
+.box:nth-child(3n) {
+    border-right: none;
+}
+
+.container-button-reset {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-restart {
+    background-color: orangered;
+}
+
+.btn-new-game,
+.btn-restart {
+    padding: 0.6rem;
+    width: 7rem;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    background-color: rgb(49, 135, 168);
+}
+
+button:active {
+    transform: translateY(+2px);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+}

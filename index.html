@@ -8,6 +8,33 @@
     <title>Tris</title>
 </head>
 <body>
-    
+    <div class="container-players">
+        <label for="playerX">Name player X:</label>
+        <input type="text" name="playerX" id="playerX" placeholder="Player X">
+
+        <label for="playerX">Name player O:</label>
+        <input type="text" name="playerO" id="playerO" placeholder="Player O">
+        
+        <button class="btn-new-game">New game</button>
+    </div>
+    <p class="game-message"></p>
+    <div class="container-main">
+        <p class="playerX-score"></p>
+        <div class="container-chessBoard">
+            <button class="box" data-index="0"></button>
+            <button class="box" data-index="1"></button>
+            <button class="box" data-index="2"></button>
+            <button class="box" data-index="3"></button>
+            <button class="box" data-index="4"></button>
+            <button class="box" data-index="5"></button>
+            <button class="box" data-index="6"></button>
+            <button class="box" data-index="7"></button>
+            <button class="box" data-index="8"></button>
+        </div>
+        <p class="playerO-score"></p>
+    </div>
+    <div class="container-button-reset">
+        <button class="btn-restart">Restart</button>
+    </div>
 </body>
 </html>
