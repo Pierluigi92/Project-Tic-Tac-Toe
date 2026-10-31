@@ -147,7 +147,6 @@ function gameController(nameX, nameO) {
       gameOver = true;
       if (winnerControl === "x") {
         playerXScore++;
-        playerXScoreMessage.textContent = playerXScore;
       } else if (winnerControl === "o") {
         playerOScore++;
       }
@@ -174,6 +173,7 @@ function gameController(nameX, nameO) {
     }
 
     return {
+      message: `${listPlayer[currentPlayerIndex].name} is your turn!`,
       success: true,
     };
   }
@@ -205,9 +205,10 @@ function render() {
   const name = game.returnPlayersName();
   const currentPLayer = game.returnCurrentPlayer();
 
-  allBox.forEach((box, index) => {
+  allBox.forEach((box) => {
     box.textContent = board[box.dataset.index];
   });
+
   gameMessage.textContent = `${currentPLayer} it's your turn!`;
   playerXScoreMessage.textContent = `${name.playerX}'s score:
   ${score.playerXScore}`;
@@ -221,6 +222,7 @@ containerChessboard.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     const move = Number(e.target.getAttribute("data-index"));
     const moveResult = game.playRound(move);
+    console.log(moveResult);
     render();
     gameMessage.textContent = moveResult.message;
   }
@@ -229,14 +231,9 @@ containerChessboard.addEventListener("click", (e) => {
 const newGameButton = document.querySelector(".btn-new-game");
 
 newGameButton.addEventListener("click", () => {
-  let nameX = document.getElementById("playerX").value.trim();
-  let nameO = document.getElementById("playerO").value.trim();
-  if (nameX === "" || undefined) {
-    nameX = "Player X";
-  }
-  if (nameO === "" || undefined) {
-    nameO = "Player O";
-  }
+  let nameX = document.getElementById("playerX").value.trim() || "Player O";
+  let nameO = document.getElementById("playerO").value.trim() || "Player O";
+
   game = gameController(nameX, nameO);
   chessBoard.clearChessBoard();
   render();
